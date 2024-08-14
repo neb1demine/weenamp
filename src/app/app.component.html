@@ -1,0 +1,54 @@
+<div class="separation-bar"></div>
+
+<div class="current-song">
+  <label class="text-truncate">{{currentSong?.name}}</label>
+  <label>{{currentSong?.duration}}</label>
+</div>
+
+<div class="artwork-wrapper">
+  <i class="bi bi-cassette"></i>
+</div>
+
+<!-- <div class="hp_slide">
+  <div class="hp_range"></div>
+</div> -->
+<div class="slidecontainer">
+  <input type="range"
+         min="1"
+         [max]="sliderMaxValue"
+         [value]="sliderValue"
+         class="slider"
+         id="myRange">
+</div>
+
+<div class="control-buttons">
+  <div>
+    <button class="me-1"><i class="bi bi-skip-backward-fill"></i></button>
+    <button (click)="play()"
+            class="me-1"><i class="bi bi-play-fill"></i></button>
+    <button><i class="bi bi-skip-forward-fill"></i></button>
+  </div>
+
+  <div>
+    <button><i class="bi bi-shuffle"></i></button>
+    <button class="ms-1"><i class="bi bi-repeat"></i></button>
+    <button (click)="openFolder($event)"><i class="bi bi-folder2-open"></i></button>
+  </div>
+</div>
+
+<div class="separation-bar"></div>
+
+<div class="song-list">
+  @if(!$any(songs$ |async)?.length){
+  <div class="song">Your playlist is empty. Please load some music...</div>
+  }
+  @for (song of $any(songs$ | async) ; track $index) {
+  <div class="song"
+       (click)="selectSong(song)"
+       (dblclick)="play()"
+       [ngClass]="{'selected': song.selected}">
+    <label class="text-truncate">{{$index+1}}. {{song.name}}</label>
+    <label>{{song.duration}}</label>
+  </div>
+  }
+</div>

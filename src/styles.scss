@@ -1,0 +1,88 @@
+/* You can add global styles to this file, and also import other style files */
+@import 'bootstrap/scss/bootstrap';
+@import "../node_modules/bootstrap-icons/font/bootstrap-icons.css";
+
+body {
+    background: rgb(33, 33, 51);
+    background: linear-gradient(90deg, rgba(33, 33, 51, 1) 0%, rgba(46, 45, 72, 1) 47%, rgba(47, 46, 75, 1) 100%);
+    padding: .5rem .5rem;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.separation-bar {
+    background: #edd89b;
+    background: linear-gradient(180deg,
+            #edd89b 0%,
+            #a19c87 55%,
+            #807651 60%,
+            #cdb671 64%,
+            #ccb570 100%);
+
+    height: .7rem;
+    width: 100%;
+}
+
+.current-song {
+    display: flex;
+    justify-content: space-between;
+    background: black;
+    color: #00c000;
+    margin-top: 1rem;
+    width: 100%;
+    user-select: none;
+    outline-width: 0;
+    padding: 0 .2rem;
+    border-width: 2px;
+    border-style: inset;
+    border-color: light-dark(rgb(118, 118, 118), rgb(133, 133, 133));
+    border-image: initial;
+}
+
+.song-list {
+    overflow-y: auto;
+    max-height: 35vh;
+    height: 300px;
+    background: black;
+    color: #00c000;
+    margin-top: 1rem;
+    width: 100%;
+    user-select: none;
+    outline-width: 0;
+    padding: 0 .2rem;
+    border-width: 2px;
+    border-style: inset;
+    border-color: light-dark(rgb(118, 118, 118), rgb(133, 133, 133));
+    border-image: initial;
+
+    .song {
+        display: flex;
+        justify-content: space-between;
+
+        &.selected {
+            background-color: blue;
+            color: white;
+        }
+    }
+}
+
+.control-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin: 1rem 0;
+
+    button {
+        color: #737d90;
+        background: #d9dee8;
+    }
+}
+
+.artwork-wrapper {
+    height: 40vh;
+    background: black;
+    color: #2f2e4b;
+    margin-top: .5rem;
+    font-size: 180px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
