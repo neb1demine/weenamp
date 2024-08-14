@@ -52,6 +52,11 @@ export class AppComponent {
 
   songs: ISong[] = [];
 
+    async openFile() {
+    const fileHandle = await window.showOpenFilePicker();
+  }
+
+
   async selectSong(song: SongDb) {
     if (song.name !== this.selectSong.name) {
       this.newSong = true;
